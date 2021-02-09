@@ -92,11 +92,8 @@ def run_example():
     H = array([[1, 0, 0, 0], [0, 1, 0, 0]])
     R = eye(Y.shape[0])
     
-    
-    
     # Applying the Kalman Filter
     for i in arange(0, N_iter):
-        print(Y)
         (X, P) = kf_predict(X, P, A, Q, B, U)
         (X, P, K, IM, IS, LH) = kf_update(X, P, Y, H, R)
         Y = array([[X[0,0] + abs(0.1 * randn(1)[0])],[X[1, 0] +\
